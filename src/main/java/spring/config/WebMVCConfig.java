@@ -15,9 +15,9 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 
 @ComponentScans({
-        @ComponentScan("spring.controller")
-//        @ComponentScan("service"),
-
+        @ComponentScan("spring.controller"),
+        @ComponentScan("model"),
+        @ComponentScan("service")
 })
 
 

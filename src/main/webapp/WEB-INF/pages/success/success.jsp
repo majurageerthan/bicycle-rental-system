@@ -14,10 +14,10 @@
     </div>
 
     <div>
-        <span>${response}</span>
+        <span>${message}</span>
     </div>
 
-    <a class="btn btn-outline-secondary btn-lg btn-block" href="${pageContext.request.contextPath}/index.jsp"
+    <a class="btn btn-outline-secondary btn-lg btn-block" href="${pageContext.request.contextPath}/"
        role="button">Go back to home</a>
 
 </div>
