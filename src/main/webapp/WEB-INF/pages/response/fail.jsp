@@ -9,16 +9,11 @@
 
 <div class="container">
     <br><br><br><br>
-    <div class="alert alert-success" role="alert">
-        Success
+    <div class="alert alert-danger text-center" role="alert">
+        ${message}
     </div>
 
-    <div>
-        <span>${message}</span>
-    </div>
-
-    <a class="btn btn-outline-secondary btn-lg btn-block" href="${pageContext.request.contextPath}/"
-       role="button">Go back to home</a>
+    <a class="btn btn-outline-secondary btn-lg btn-block" onclick="history.back()" role="button">Go back</a>
 
 </div>
 </body>

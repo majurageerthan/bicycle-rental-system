@@ -35,7 +35,8 @@
 </style>
 
 <div class="alert alert-primary text-center" role="alert">
-    For creating necessary tables and creating user role, MySQL needs your root/ root level MySQL account. Please enter your details below
+    For creating necessary tables and creating user role, MySQL needs your root/ root level MySQL account. Please enter
+    your details below
 </div>
 
 <div class="container">
@@ -46,7 +47,8 @@
         <form action="${pageContext.request.contextPath}/initialize_system" method="post">
             <h2 class="text-center">MySQL root details</h2>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="MySQL root Username" required="required" name="userName"
+                <input type="text" class="form-control" placeholder="MySQL root Username" required="required"
+                       name="userName"
                        autocomplete="off">
             </div>
             <div class="form-group">
@@ -59,6 +61,9 @@
         </form>
         <%--</form:form>--%>
     </div>
+
+    <a class="btn btn-outline-secondary btn-lg btn-block" href="${pageContext.request.contextPath}/login_page"
+       role="button">Already initialized system, Go to user role login page</a>
 
 </div>
 

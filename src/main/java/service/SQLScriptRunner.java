@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static support.Constant.SQL_FILE_CREATE_DATABASE_AND_TABLES;
+import static support.Constant.SQL_FILE_CREATE_USERS_AND_PRIVILEGES;
 
 public class SQLScriptRunner {
 
@@ -20,6 +21,8 @@ public class SQLScriptRunner {
         LogInUser logInUser = new LogInUser();
         logInUser.setDataSource(dataSource);
         executeSQLScript(logInUser, SQL_FILE_CREATE_DATABASE_AND_TABLES);
+        executeSQLScript(logInUser, SQL_FILE_CREATE_USERS_AND_PRIVILEGES);
+
     }
 
 

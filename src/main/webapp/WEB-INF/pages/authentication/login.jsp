@@ -67,5 +67,42 @@
 
 </div>
 
+<div class="container">
+    <div class="alert alert-success text-center" role="alert">
+       User roles and login credentials
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">User role</th>
+            <th scope="col">User name</th>
+            <th scope="col">Password</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Manager</td>
+            <td>manager</td>
+            <td>1234</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Cashier</td>
+            <td>cashier</td>
+            <td>1234</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Customer</td>
+            <td>customer</td>
+            <td>1234</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
