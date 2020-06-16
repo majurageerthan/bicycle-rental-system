@@ -85,19 +85,19 @@
         <tr>
             <th scope="row">1</th>
             <td>Manager</td>
-            <td>manager</td>
+            <td>941212293V</td>
             <td>1234</td>
         </tr>
         <tr>
             <th scope="row">2</th>
             <td>Cashier</td>
-            <td>cashier</td>
+            <td>941312293V</td>
             <td>1234</td>
         </tr>
         <tr>
             <th scope="row">3</th>
             <td>Customer</td>
-            <td>customer</td>
+            <td>941112293V</td>
             <td>1234</td>
         </tr>
         </tbody>

@@ -21,4 +21,13 @@ public class DataSourceHelper {
 //        dataSource.setPassword(password);
         return ds;
     }
+
+    public static DataSource getDataSourceWithDatabaseName(String userName, String password) {
+        MysqlDataSource ds = new MysqlDataSource();
+//        ds.setServerName(DATABASE_NAME);
+        ds.setUser(userName);
+        ds.setPassword(password);
+        ds.setDatabaseName(DATABASE_NAME);
+        return ds;
+    }
 }

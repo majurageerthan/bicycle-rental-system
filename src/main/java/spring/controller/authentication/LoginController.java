@@ -1,5 +1,7 @@
 package spring.controller.authentication;
 
+import dao.UserDao;
+import dao.impl.UserDaoImpl;
 import model.LogInUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,18 +31,45 @@ public class LoginController extends BaseController {
         if (logInUser.getRole() == null)
             return SendResponseModelAndView("response/fail", "Access denied, User name or password wrong");
 
-        return SendResponseModelAndView("response/success", "Welcome " + logInUser.getRole());
+        return showUserPageBasedOnUser(logInUser);
+
+//        return SendResponseModelAndView("response/success", "Welcome " + logInUser.getRole());
+    }
+
+    private ModelAndView showUserPageBasedOnUser(LogInUser logInUser) {
+        ModelAndView modelAndView = new ModelAndView();
+
+
+        if (USER_NAME_CUSTOMER.equals(logInUser.getRole())) {
+            UserDao userDao = new UserDaoImpl(logInUser.getDataSource());
+            modelAndView.addObject("user", userDao.getUser(logInUser.getUserName()));
+            modelAndView.setViewName("users/customer");
+
+        } else if (USER_NAME_MANAGER.equals(logInUser.getRole())) {
+
+        } else if (USER_NAME_CASHIER.equals(logInUser.getRole())) {
+
+
+        }
+
+
+        return modelAndView;
     }
 
 
     private void initUserRole(LogInUser logInUser) {
-        DataSource dataSource = DataSourceHelper.getDataSource(logInUser.getUserName(), logInUser.getPassword());
-        logInUser.setDataSource(dataSource);
-        if (USER_NAME_CUSTOMER.toLowerCase().equals(logInUser.getUserName())) {
+        DataSource dataSource = null;
+        if ("941112293V".equals(logInUser.getUserName())) {
+            dataSource = DataSourceHelper.getDataSourceWithDatabaseName("customer", logInUser.getPassword());
             logInUser.setRole(USER_NAME_CUSTOMER);
-        } else if (USER_NAME_MANAGER.toLowerCase().equals(logInUser.getUserName())) {
+
+        } else if ("941212293V".equals(logInUser.getUserName())) {
+            dataSource = DataSourceHelper.getDataSourceWithDatabaseName("manager", logInUser.getPassword());
             logInUser.setRole(USER_NAME_MANAGER);
-        } else if (USER_NAME_CASHIER.toLowerCase().equals(logInUser.getUserName())) {
+
+        } else if ("941312293V".equals(logInUser.getUserName())) {
+            dataSource = DataSourceHelper.getDataSourceWithDatabaseName("cachier", logInUser.getPassword());
+
             logInUser.setRole(USER_NAME_CASHIER);
         } else {
             logInUser.setRole(null);
@@ -49,6 +78,8 @@ public class LoginController extends BaseController {
         if (!logInUser.getPassword().equals("1234")) {
             logInUser.setRole(null);
         }
+
+        logInUser.setDataSource(dataSource);
     }
 
 }
