@@ -46,9 +46,9 @@ public class LoginController extends BaseController {
             modelAndView.setViewName("users/customer");
 
         } else if (USER_NAME_MANAGER.equals(logInUser.getRole())) {
-
+            return SendResponseModelAndView("response/success", "Welcome " + logInUser.getRole());
         } else if (USER_NAME_CASHIER.equals(logInUser.getRole())) {
-
+            return SendResponseModelAndView("response/success", "Welcome " + logInUser.getRole());
 
         }
 
